@@ -1,0 +1,12 @@
+server.port = 8080
+spring.application.name=apigateway-service
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+
+spring.cloud.gateway.routes[0].id= olxAdvertiseModule
+spring.cloud.gateway.routes[0].uri = lb://OLX-ADVERTISES
+spring.cloud.gateway.routes[0].predicates = Path=/advertiseapi/**
+
+spring.cloud.gateway.routes[1].id= olxMasterdataModule
+spring.cloud.gateway.routes[1].uri = lb://OLX-MASTERDATA
+spring.cloud.gateway.routes[1].predicates = Path=/advertiseMasterapi/**
